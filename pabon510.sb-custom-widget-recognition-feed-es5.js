@@ -1,6 +1,6 @@
 (function() {
   var blockDefinition = {
-    name: 'recognition-feed',
+    name: 'sb-sb-custom-widget-recognition-feed
     factory: function(args) {
       var configuration = args.configuration;
       return function(el, ctx) {
@@ -44,7 +44,7 @@
         });
       };
     },
-    attributes: {},
+    attributes: [],
     configurationSchema: {
       type: 'object',
       properties: {

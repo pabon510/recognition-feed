@@ -1,9 +1,10 @@
 (function() {
   var blockDefinition = {
-    name: 'sb-sb-custom-widget-recognition-feed
+    name: 'sb-custom-widget-recognition-feed',
     factory: function(args) {
       var configuration = args.configuration;
       return function(el, ctx) {
+        // Clear container
         el.innerHTML = '';
         var token = configuration.token || '';
         var limit = configuration.limit || 10;
@@ -24,7 +25,7 @@
             var list = document.createElement('ul');
             data.data.forEach(function(item) {
               var li = document.createElement('li');
-              var giver = item.giver && item.giver.display_name ? item.giver.display_name : 'Someone';
+              var giver = (item.giver && item.giver.display_name) ? item.giver.display_name : 'Someone';
               var receivers = '';
               if (Array.isArray(item.receivers)) {
                 receivers = item.receivers.map(function(r) {
@@ -48,10 +49,7 @@
     configurationSchema: {
       type: 'object',
       properties: {
-        token: {
-          type: 'string',
-          title: 'Bonusly API Token'
-        },
+        token: { type: 'string', title: 'Bonusly API Token' },
         limit: {
           type: 'integer',
           title: 'Number of recognitions',
@@ -63,12 +61,8 @@
       required: ['token']
     },
     uiSchema: {
-      token: {
-        'ui:widget': 'password'
-      },
-      limit: {
-        'ui:widget': 'updown'
-      }
+      token: { 'ui:widget': 'password' },
+      limit: { 'ui:widget': 'updown' }
     },
     label: 'Bonusly Recognition Feed'
   };
